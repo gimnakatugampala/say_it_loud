@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const session = require('express-session')
+const path = require('path')
 
 
 
@@ -41,6 +42,9 @@ app.use(methodOverride(function (req, res) {
     }
   }))
 
+  // Static Folder / CSS
+app.use(express.static(path.join(__dirname,'public')))
+
 
 // Handlebars
 app.engine('.hbs', exphbs({defaultLayout:'main',extname: '.hbs'}));
@@ -48,6 +52,7 @@ app.engine('.hbs', exphbs({defaultLayout:'main',extname: '.hbs'}));
 // Routes
 app.use('/',require('./routes/auth'))
 app.use('/posts',require('./routes/index'))
+
 
 
 
