@@ -2,3 +2,21 @@
     font-size: 30px !important;
     padding: 30px;
 }
+
+
+.sign{
+    width: 50%;
+   margin: auto;
+   text-align: center;
+   padding: 40px;
+   margin-top: 70px;
+}
+
+.login-btn{
+    width: 100%;
+    margin-top: 15px;
+}
+
+.fab{
+    margin-right: 5px;
+}

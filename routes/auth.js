@@ -3,15 +3,19 @@ const router = express.Router()
 
 // @desc Login Page
 // @route GET /
-router.get('/',(req,res) =>{
-    res.render('auth/signin')
+router.get('/signin',(req,res) =>{
+    res.render('auth/signin',{
+        layout:'login'
+    })
 
 })
 
 // @desc SignUp
 // @route GET /signup
 router.get('/signup',(req,res) =>{
-    res.render('auth/signup')
+    res.render('auth/signup',{
+        layout:'login'
+    })
 
 })
 
