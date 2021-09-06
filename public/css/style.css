@@ -28,3 +28,29 @@
 .section{
     text-align: center;
 }
+
+.head-section-post{
+    display:flex;
+    padding:10px;
+}
+
+.img-post-head{
+    width: 60px;
+    height:60px;
+    border-radius:50%;
+    margin-right:10px;
+}
+
+.by{
+    margin: 0px;
+}
+
+.username{
+    margin: -3px;
+}
+
+.date{
+    margin: -1px;
+    color:#333;
+    font-size:13px;
+}
