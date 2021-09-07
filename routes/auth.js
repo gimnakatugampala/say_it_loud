@@ -48,4 +48,18 @@ router.get('/auth/google',
     res.redirect('/');
   });
 
+  // @desc Facebook Auth
+// @route GET /signin
+router.get('/auth/facebook',
+  passport.authenticate('facebook'));
+
+// @desc Facebook Auth
+// @route GET /signin
+router.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/signin' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
 module.exports = router
