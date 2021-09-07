@@ -17,7 +17,8 @@ const app = express()
 dotenv.config({path:'./config/config.env'})
 
 // Passport Config
-require('./config/passport')(passport)
+require('./config/passport-google')(passport)
+require('./config/passport-facebook')(passport)
 
 connectDB()
 
