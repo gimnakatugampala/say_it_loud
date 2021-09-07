@@ -9,7 +9,31 @@ module.exports = function(passport){
         callbackURL: "/auth/facebook/callback"
       },
     async (accessToken,refreshToken,profile,done) => {
-       done(null,profile)
+        const newUser = {
+            facebookId:profile.id,
+            displayName:profile.name,
+            firstName:profile.first_name,
+            lastName:profile.last_name,
+            image:profile.profile_pic
+
+        }
+
+        try{
+            let user = await User.findOne({facebookId:profile.id})
+
+            if(user){
+                done(null,user)
+            }else{
+                user  = await User.create(newUser)
+                done(null,user)
+            }
+
+        }catch(err){
+
+            console.error(err)
+
+        }
+
 
     }))
 
