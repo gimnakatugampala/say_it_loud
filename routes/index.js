@@ -11,9 +11,24 @@ router.get('/',(req,res) =>{
 // @desc  Posts Create
 // @route GET /posts/create
 router.get('/create',(req,res) =>{
-    res.send('post/create')
+    res.render('post/create')
 
 })
+
+// @desc  All Posts
+// @route GET /posts/all
+router.get('/all',(req,res) =>{
+    res.render('post/all')
+
+})
+
+// @desc  All Hashtags
+// @route GET /posts/hashtags
+router.get('/hashtags',(req,res) =>{
+    res.render('post/hashtags')
+
+})
+
 
 // // @desc  Single Post
 // // @route GET /posts/:id
