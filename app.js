@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const path = require('path')
+const passport = require('passport')
 
 
 
@@ -14,6 +15,9 @@ const app = express()
 
 // Load config
 dotenv.config({path:'./config/config.env'})
+
+// Passport Config
+require('./config/passport')(passport)
 
 connectDB()
 
@@ -41,6 +45,10 @@ app.use(methodOverride(function (req, res) {
       return method
     }
   }))
+
+  // Passport Middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
   // Static Folder / CSS
 app.use(express.static(path.join(__dirname,'public')))
