@@ -26,8 +26,6 @@ module.exports = function(passport){
 
 
 module.exports = function(passport){
-
-  
     passport.use(new FacebookStrategy({
         clientID: process.env.FACEBOOK_APP_ID,
         clientSecret: process.env.FACEBOOK_APP_SECRET,
@@ -49,5 +47,5 @@ module.exports = function(passport){
         });
       });
 
-  
+
 }
