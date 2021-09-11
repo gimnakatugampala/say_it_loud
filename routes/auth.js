@@ -18,14 +18,14 @@ router.get('/signin',(req,res) =>{
 
 })
 
-// @desc SignUp
-// @route GET /signup
-router.get('/signup',(req,res) =>{
-    res.render('auth/signup',{
-        layout:'login'
-    })
+// // @desc SignUp
+// // @route GET /signup
+// router.get('/signup',(req,res) =>{
+//     res.render('auth/signup',{
+//         layout:'login'
+//     })
 
-})
+// })
 
 // @desc Search 
 // @route GET /search
