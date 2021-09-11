@@ -36,11 +36,11 @@ router.get('/hashtags',(req,res) =>{
 })
 
 
-// // @desc  Single Post
-// // @route GET /posts/:id
-// router.get('/:id',(req,res) =>{
-//     res.send('post/create')
+// @desc  Single Post
+// @route GET /posts/:id
+router.get('/:id',(req,res) =>{
+    res.send('post/create')
 
-// })
+})
 
 module.exports = router
