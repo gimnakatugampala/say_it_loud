@@ -1,10 +1,16 @@
 const express = require('express')
 const router = express.Router()
 
+const User = require('../models/User')
+
 // @desc All Posts
 // @route GET /posts
 router.get('/',(req,res) =>{
+
     res.render('post/index')
+
+    console.log(req.user)
+    console.log(req.body.user)
 
 })
 
