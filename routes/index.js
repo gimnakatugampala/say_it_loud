@@ -9,6 +9,8 @@ const {ensureAuth,ensureGuest}  = require('../middleware/auth')
 // @route GET /posts
 router.get('/',ensureAuth,(req,res) =>{
 
+    console.log(req.user)
+
     res.render('post/index')
 })
 

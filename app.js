@@ -2,11 +2,12 @@ const express = require('express')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
-const methodOverride = require('method-override')
-const session = require('express-session')
 const path = require('path')
 const passport = require('passport')
-
+const session = require('express-session')
+const MongoStore = require('connect-mongo')(session)
+const mongoose = require('mongoose')
+const methodOverride = require('method-override')
 
 
 const connectDB = require('./config/db')
@@ -47,12 +48,13 @@ app.use(methodOverride(function (req, res) {
     }
   }))
 
-  // Sessions
-  app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
-  }))
+// Sessions
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+}))
 
   // Passport Middleware
 app.use(passport.initialize())
