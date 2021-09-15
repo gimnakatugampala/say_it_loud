@@ -71,7 +71,7 @@ router.get('/auth/facebook/callback',
   // @route /auth/logout
   router.get('/logout',(req,res) =>{
     req.logout()
-    res.redirect('/signup')
+    res.redirect('/signin')
   })
 
 

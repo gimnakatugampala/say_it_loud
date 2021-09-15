@@ -8,10 +8,6 @@ const User = require('../models/User')
 router.get('/',(req,res) =>{
 
     res.render('post/index')
-
-    console.log(req.user)
-    console.log(req.body.user)
-
 })
 
 // @desc  Posts Create

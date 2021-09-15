@@ -47,6 +47,13 @@ app.use(methodOverride(function (req, res) {
     }
   }))
 
+  // Sessions
+  app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+  }))
+
   // Passport Middleware
 app.use(passport.initialize())
 app.use(passport.session())
@@ -57,6 +64,7 @@ app.use(express.static(path.join(__dirname,'public')))
 
 // Handlebars
 app.engine('.hbs', exphbs({defaultLayout:'main',extname: '.hbs'}));
+app.set('view engine','.hbs')
 
 // Routes
 app.use('/',require('./routes/auth'))
