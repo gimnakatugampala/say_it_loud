@@ -4,10 +4,14 @@ const router = express.Router()
 const User = require('../models/User')
 const {ensureAuth,ensureGuest}  = require('../middleware/auth')
 
+const multer  = require('multer')
+const upload = multer({ dest: 'uploads/' })
+const path = require('path')
+const fs = require('fs')
 
 // @desc All Posts
 // @route GET /posts
-router.get('/',ensureAuth,(req,res) =>{
+router.get('/',ensureAuth ,(req,res) =>{
 
     const userimg =  req.user.image
     const userfirstname =  req.user.firstName
@@ -27,6 +31,27 @@ router.get('/',ensureAuth,(req,res) =>{
         googleId
     })
 })
+
+// @desc  Posts Create - using post request
+// @route POST /posts
+router.post('/',ensureAuth,upload.single('avatar'),(req,res) =>{
+    console.log(req.body)
+    console.log(req.file)
+
+    const tempPath = req.file.path;
+    const targetPath = path.join('./uploads',req.file.filename + req.file.originalname);
+
+    fs.rename(tempPath,targetPath,err => {
+        if(err) return res.redirect('/posts/create')
+
+        res
+        .status(200)
+        .contentType("text/plain")
+        .redirect('/posts')
+
+    })
+})
+
 
 // @desc  Posts Create
 // @route GET /posts/create

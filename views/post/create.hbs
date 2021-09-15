@@ -1,1 +1,43 @@
-<h1>Create</h1>
+<h4>Create a Post</h4>
+
+<div class="row">
+    <form action="/posts" method="POST"  enctype="multipart/form-data" class="col s12">
+
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Upload an Image</span>
+        <input type="file" name="avatar" accept="image/png, image/gif, image/jpeg">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="title" type="text" class="validate" name="title">
+          <label for="title">Title</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea" name="body"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+      </div>
+
+       
+      <button class="btn waves-effect waves-light" type="submit">Submit</button>
+
+    </form>
+  </div>
+
+    {{!-- {{userimg}}
+  {{userfirstname}}
+  {{userlastname}}
+  {{id}}
+  {{displayname}}
+  {{googleId}} --}}
+
+        
