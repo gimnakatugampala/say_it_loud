@@ -31,7 +31,22 @@ router.get('/signin',ensureGuest,(req,res) =>{
 // @desc Search 
 // @route GET /search
 router.get('/search',ensureAuth,(req,res) =>{
-  res.render('post/search')
+
+  const userimg =  req.user.image
+  const userfirstname =  req.user.firstName
+  const userlastname =  req.user.lastName
+  const id = req.user._id
+  const displayname = req.user.displayName
+  const googleId = req.user.googleId
+
+  res.render('post/search',{
+    userimg,
+    userfirstname,
+    userlastname,
+    id,
+    displayname,
+    googleId
+  })
 
 })
 
