@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const passport =  require('passport')
+const {ensureAuth,ensureGuest}  = require('../middleware/auth')
 
 
 // @desc Login Page
@@ -11,7 +12,7 @@ router.get('/',(req,res) =>{
 
 // @desc Login Page
 // @route GET /signin
-router.get('/signin',(req,res) =>{
+router.get('/signin',ensureGuest,(req,res) =>{
     res.render('auth/signin',{
         layout:'login'
     })
@@ -29,10 +30,11 @@ router.get('/signin',(req,res) =>{
 
 // @desc Search 
 // @route GET /search
-router.get('/search',(req,res) =>{
-    res.render('post/search')
+router.get('/search',ensureAuth,(req,res) =>{
+  res.render('post/search')
 
 })
+
 
 // @desc Google Auth
 // @route GET /signin

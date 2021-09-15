@@ -2,31 +2,34 @@ const express = require('express')
 const router = express.Router()
 
 const User = require('../models/User')
+const {ensureAuth,ensureGuest}  = require('../middleware/auth')
+
 
 // @desc All Posts
 // @route GET /posts
-router.get('/',(req,res) =>{
+router.get('/',ensureAuth,(req,res) =>{
 
     res.render('post/index')
 })
 
 // @desc  Posts Create
 // @route GET /posts/create
-router.get('/create',(req,res) =>{
+router.get('/create',ensureAuth,(req,res) =>{
     res.render('post/create')
 
 })
 
+
 // @desc  All Posts
 // @route GET /posts/all
-router.get('/all',(req,res) =>{
+router.get('/all',ensureAuth,(req,res) =>{
     res.render('post/all')
 
 })
 
 // @desc  All Hashtags
 // @route GET /posts/hashtags
-router.get('/hashtags',(req,res) =>{
+router.get('/hashtags',ensureAuth,(req,res) =>{
     res.render('post/hashtags')
 
 })
@@ -34,7 +37,7 @@ router.get('/hashtags',(req,res) =>{
 
 // @desc  Single Post
 // @route GET /posts/:id
-router.get('/:id',(req,res) =>{
+router.get('/:id',ensureAuth,(req,res) =>{
     res.send('post/create')
 
 })
