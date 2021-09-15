@@ -110,7 +110,6 @@ router.get('/:id',ensureAuth,(req,res) =>{
     const displayname = req.user.displayName
     const googleId = req.user.googleId
 
-
     res.send('post/create',{
         userimg,
         userfirstname,
