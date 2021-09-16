@@ -5,7 +5,7 @@
               <img src={{userimage}} class="img-post-head">
              <a href="#" class="by">{{displayname}}
                  <p class="username">@{{username}}</p>
-                 <p class="date">{{createdAt}}</p>
+                 <p class="date">{{formatDate createdAt "YYYYMMDD"}}</p>
              </a>
           </span>
          {{#if image.length}}

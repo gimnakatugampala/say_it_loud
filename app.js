@@ -66,10 +66,11 @@ app.use(express.static(path.join(__dirname,'public')))
 app.use("/uploads", express.static('./uploads/'))
 
 
-
+// Handlebars Helpers
+const {formatDate } = require('./helpers/hbs')
 
 // Handlebars
-app.engine('.hbs', exphbs({defaultLayout:'main',extname: '.hbs'}));
+app.engine('.hbs', exphbs({helpers:{formatDate},defaultLayout:'main',extname: '.hbs'}));
 app.set('view engine','.hbs')
 
 // Routes
