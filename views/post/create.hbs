@@ -23,9 +23,22 @@
       <div class="row">
         <div class="input-field col s12">
           <textarea id="textarea1" class="materialize-textarea" name="body"></textarea>
-          <label for="textarea1">Textarea</label>
+          <label for="textarea1">What's on Your mind ?</label>
         </div>
       </div>
+
+        
+      <select id="status" name="status">
+          <option value="public">Public</option>
+          <option value="private">Private</option>
+      </select>
+      <label for="status">Status</label>
+    
+
+      <input type="hidden" name="firstname" value={{userfirstname}}>
+      <input type="hidden" name="lastname" value={{userlastname}}>
+      <input type="hidden" name="displayname" value={{displayname}}>
+      <input type="hidden" name="userid" value={{id}}>
 
        
       <button class="btn waves-effect waves-light" type="submit">Submit</button>
@@ -35,9 +48,9 @@
 
     {{!-- {{userimg}}
   {{userfirstname}}
-  {{userlastname}}
-  {{id}}
-  {{displayname}}
+  {{userlastname}} --}}
+  {{!-- {{id}} --}}
+  {{!-- {{displayname}}
   {{googleId}} --}}
 
         

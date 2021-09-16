@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const User = require('../models/User')
+const Post = require('../models/Post')
 const {ensureAuth,ensureGuest}  = require('../middleware/auth')
 
 const multer  = require('multer')
@@ -34,15 +35,15 @@ router.get('/',ensureAuth ,(req,res) =>{
 
 // @desc  Posts Create - using post request
 // @route POST /posts
-router.post('/',ensureAuth,upload.single('avatar'),(req,res) =>{
-    console.log(req.body)
-    console.log(req.file)
+router.post('/',ensureAuth,upload.single('avatar'),async (req,res) =>{
+    // console.log(req.body)
+    // console.log(req.file)
+    try{
+        const tempPath = req.file.path;
+        const targetPath = path.join('./uploads',req.file.filename + req.file.originalname);
 
-    const tempPath = req.file.path;
-    const targetPath = path.join('./uploads',req.file.filename + req.file.originalname);
-
-    fs.rename(tempPath,targetPath,err => {
-        if(err) return res.redirect('/posts/create')
+         fs.rename(tempPath,targetPath,err => {
+         if(err) return res.redirect('/posts/create')
 
         res
         .status(200)
@@ -50,6 +51,24 @@ router.post('/',ensureAuth,upload.single('avatar'),(req,res) =>{
         .redirect('/posts')
 
     })
+        const post = {
+            userId:req.body.userid,
+            title:req.body.title,
+            body:req.body.body,
+            image:req.file.filename + req.file.originalname,
+            status:req.body.status,
+            username: req.body.firstname.toLowerCase()+ Math.floor(Math.random() * 1000),
+            displayname:req.body.firstname + ' '+  req.body.lastname
+    
+        }
+
+        // console.log(post)
+        // Save dat
+        await Post.create(post)
+    }catch(err){
+        console.log(err)
+    }
+   
 })
 
 

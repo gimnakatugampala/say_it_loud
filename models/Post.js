@@ -19,8 +19,7 @@ const PostSchema = new mongoose.Schema({
         type:String
     },
     userId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'User'
+        type:String
 
     },
     status:{
@@ -29,7 +28,9 @@ const PostSchema = new mongoose.Schema({
         enum:['public','private']
 
     },
-    likes:{
+    likeCount:{
+        type:Number,
+        default:0
 
     },
     createdAt:{
