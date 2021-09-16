@@ -33,6 +33,9 @@ const PostSchema = new mongoose.Schema({
         default:0
 
     },
+    userimage:{
+        type:String
+    },
     createdAt:{
         type:Date,
         default: Date.now

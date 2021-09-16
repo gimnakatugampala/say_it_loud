@@ -53,6 +53,7 @@ router.post('/',ensureAuth,upload.single('avatar'),async (req,res) =>{
     })
         const post = {
             userId:req.body.userid,
+            userimage:req.body.userimage,
             title:req.body.title,
             body:req.body.body,
             image:req.file.filename + req.file.originalname,
