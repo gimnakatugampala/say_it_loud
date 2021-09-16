@@ -61,7 +61,11 @@ app.use(passport.initialize())
 app.use(passport.session())
 
   // Static Folder / CSS
+// app.use(express.static(path.join(__dirname,'uploads/7ccdfb7e7734189cce4f1f04cce7577drepair.jpg')))
 app.use(express.static(path.join(__dirname,'public')))
+app.use("/uploads", express.static('./uploads/'))
+
+
 
 
 // Handlebars

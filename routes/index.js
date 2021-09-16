@@ -12,7 +12,7 @@ const fs = require('fs')
 
 // @desc All Posts
 // @route GET /posts
-router.get('/',ensureAuth ,(req,res) =>{
+router.get('/',ensureAuth ,async (req,res) =>{
 
     const userimg =  req.user.image
     const userfirstname =  req.user.firstName
@@ -21,7 +21,10 @@ router.get('/',ensureAuth ,(req,res) =>{
     const displayname = req.user.displayName
     const googleId = req.user.googleId
 
-    console.log(req.user)
+    let posts = await Post.find({}).lean()
+
+    // console.log(req.user)
+    console.log(posts)
 
     res.render('post/index',{
         userimg,
@@ -29,7 +32,8 @@ router.get('/',ensureAuth ,(req,res) =>{
         userlastname,
         id,
         displayname,
-        googleId
+        googleId,
+        posts
     })
 })
 
@@ -58,7 +62,7 @@ router.post('/',ensureAuth,upload.single('avatar'),async (req,res) =>{
             body:req.body.body,
             image:req.file.filename + req.file.originalname,
             status:req.body.status,
-            username: req.body.firstname.toLowerCase()+ Math.floor(Math.random() * 1000),
+            username: req.body.firstname.toLowerCase(),
             displayname:req.body.firstname + ' '+  req.body.lastname
     
         }
