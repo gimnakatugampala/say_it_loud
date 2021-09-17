@@ -54,3 +54,14 @@
     color:#333;
     font-size:13px;
 }
+
+.view-post{
+    background-color: #1E88E5;
+    color: #fff;
+    padding: 10px 5px 10px 5px;
+    border-radius: 25px;
+    text-align: center;
+    align-self: center;
+    flex: 5;
+    margin: 0 20px 0 20px;
+}

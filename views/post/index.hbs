@@ -1,12 +1,15 @@
-  {{#if posts.length }}
+  {{#if posts }}
     {{#each posts}}
       <div class="card feed-post">
           <span class="grey lighten-2 head-section-post">
               <img src={{userimage}} class="img-post-head">
-             <a href="#" class="by">{{displayname}}
+             <a href="/profile/{{username}}" class="by">{{displayname}}
                  <p class="username">@{{username}}</p>
                  <p class="date">{{formatDate createdAt "YYYYMMDD"}}</p>
              </a>
+             <a href="/posts/{{_id}}" class="view-post">View post</a>
+             {{!-- <span class="link-post">
+             </span> --}}
           </span>
          {{#if image.length}}
         <div class="card-image">

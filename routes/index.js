@@ -103,7 +103,7 @@ router.get('/create',ensureAuth,(req,res) =>{
 
 // @desc  All Posts
 // @route GET /posts/all
-router.get('/all',ensureAuth,(req,res) =>{
+router.get('/all',ensureAuth,async (req,res) =>{
 
     const userimg =  req.user.image
     const userfirstname =  req.user.firstName
@@ -112,6 +112,8 @@ router.get('/all',ensureAuth,(req,res) =>{
     const displayname = req.user.displayName
     const googleId = req.user.googleId
 
+    let posts = await Post.find({}).lean()
+
 
     res.render('post/all',{
         userimg,
@@ -119,7 +121,8 @@ router.get('/all',ensureAuth,(req,res) =>{
         userlastname,
         id,
         displayname,
-        googleId
+        googleId,
+        posts
     })
 
 })
