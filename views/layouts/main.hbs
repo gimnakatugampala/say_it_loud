@@ -56,7 +56,28 @@
 
         function getModal(data){
 
-            const modalMain = document.getElementById('modal-main')
+            const modalParent = document.getElementById('modal-parent')
+
+            modalParent.innerHTML = `
+                <div id="modal-main">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h4>Share on Social Media</h4>
+                    <div class="social">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-reddit-alien"></i>
+                    </div>
+                    <div class="copy">
+                    <input type="text" value="${data}" class="copy-input">
+                    <button class="btn copy-button">Copy Text</button>
+                    </div>
+                </div>
+                </div>
+            
+            `
 
 
             
