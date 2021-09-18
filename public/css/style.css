@@ -124,3 +124,38 @@
   .fab{
       font-size: 35px;
   }
+
+  .fa-facebook{
+      background-color: #1E88E5;
+      padding: 10px;
+      color: #fff;
+      border-radius: 25px;
+  }
+
+  .fa-twitter{
+      background-color: aqua;
+      padding: 10px;
+      color: #fff;
+      border-radius: 25px;
+  }
+
+  .fa-google-plus-g{
+      background-color: red;
+      padding: 10px;
+      color: #fff;
+      border-radius: 25px;
+  }
+
+  .fa-instagram{
+      background-color: darkviolet;
+      padding: 10px;
+      color: #fff;
+      border-radius: 25px;
+  }
+
+  .fa-reddit-alien{
+      background-color: orange;
+      padding: 10px;
+      color: #fff;
+      border-radius: 25px;
+  }
