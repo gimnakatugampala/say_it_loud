@@ -41,7 +41,29 @@
      <script>
          M.Sidenav.init(document.querySelector('#mobile-demo'))
          M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'))
-          M.FormSelect.init(document.querySelectorAll('select'))
+        M.FormSelect.init(document.querySelectorAll('select'))
+        M.Modal.init(document.querySelectorAll('.modal'))
      </script>
+
+     <script>
+         const clickShares = document.querySelectorAll('.modal-trigger')
+
+        for(let i=0;i < clickShares.length; i++ ){
+            clickShares[i].addEventListener('click',function(){
+                getModal(clickShares[i].href)
+            })
+        }
+
+        function getModal(data){
+
+            const modalMain = document.getElementById('modal-main')
+
+
+            
+            console.log(data)
+        }
+     </script>
+
+
 </body>
 </html>

@@ -26,17 +26,37 @@
         <div class="row section" >
           <a href="#" class="col m4 s4"><i class="far fa-thumbs-up"></i> Like</a>
           <a href="#" class="col m4 s4"><i class="far fa-comment"></i> Comments</a>
-          <a href="#" class="col m4 s4"><i class="far fa-share-square"></i> Share</a>
+          <a href="#{{_id}}" class="col m4 s4 modal-trigger"><i class="far fa-share-square"></i> Share</a>
         </div>
       </div>
       {{/each}}
+
 
       {{else}}
       <p>No Posts..</p>
 
       {{/if}}
 
+{{!-- Share  --}}
+<div id="modal-main">
 
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h4>Share the Post</h4>
+    <div class="social">
+      <i class="fab fa-facebook"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-google-plus-g"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-reddit-alien"></i>
+      
+    </div>
 
+    <div class="copy">
+    <input type="text" value="hello" class="copy-input">
+    <button class="btn copy-button">Copy Text</button>
+    </div>
 
-         
+  </div>
+
+</div>
