@@ -119,6 +119,7 @@
   .copy-button{
       width: 10%;
       margin: 20px;
+      position: relative;
   }
   
   .social{
@@ -162,4 +163,14 @@
       padding: 10px;
       color: #fff;
       border-radius: 25px;
+  }
+
+  .copied{
+     margin: -20px;
+     padding: 8px;
+     position: absolute;
+     left: 82.5%;
+     background-color: #574c4c88;
+     color: #fff;
+     display: none;
   }

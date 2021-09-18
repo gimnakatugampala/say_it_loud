@@ -49,6 +49,7 @@
          const clickShares = document.querySelectorAll('.modal-trigger')
          const modalMain = document.getElementById('modal-parent')
           const modalParent = document.getElementById('modal-parent')
+          
 
         for(let i=0;i < clickShares.length; i++ ){
             clickShares[i].addEventListener('click',function(){
@@ -77,7 +78,8 @@
                     </div>
                     <div class="copy">
                     <input type="text" value="${resultDat}" class="copy-input">
-                    <button class="btn copy-button">Copy Text</button>
+                    <p class="copied">Copied</p>
+                    <button class="btn copy-button" onClick="clickcopy()">Copy Text</button>
                     </div>
                 </div>
                 </div>
@@ -96,6 +98,24 @@
              }
 
             })
+
+        
+         // Clipboard copy click
+         function clickcopy(){
+        const copied = document.querySelector('.copied')    
+         const input = document.querySelector(".copy-input")
+
+            
+        /* Select the text field */
+        input.select();
+        input.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(input.value);
+
+        copied.style.display = 'block'
+
+         }
 
 
 
