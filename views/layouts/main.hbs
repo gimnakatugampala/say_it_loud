@@ -47,18 +47,22 @@
 
      <script>
          const clickShares = document.querySelectorAll('.modal-trigger')
+         const modalMain = document.getElementById('modal-parent')
+          const modalParent = document.getElementById('modal-parent')
 
         for(let i=0;i < clickShares.length; i++ ){
             clickShares[i].addEventListener('click',function(){
                 getModal(clickShares[i].href)
             })
         }
-
+        
+        //onClick get the modal share
         function getModal(data){
+            //Display modal
+            modalMain.style.display = 'block'
+
             const resultDat = data.replace('#','/')
-
-            const modalParent = document.getElementById('modal-parent')
-
+            
             modalParent.innerHTML = `
                 <div id="modal-main">
                 <div class="modal-content">
@@ -78,11 +82,24 @@
                 </div>
                 </div>
             `
-
-
-            
             console.log(data)
+ 
         }
+
+            //Close modal
+         modalMain.addEventListener('click',function(e){
+
+             if(e.target.getAttribute('id') === 'modal-main'){
+                modalMain.style.display = 'none'
+             }else if(e.target.getAttribute('class') === 'close'){
+                  modalMain.style.display = 'none'
+             }
+
+            })
+
+
+
+
      </script>
 
 
