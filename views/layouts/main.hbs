@@ -55,6 +55,7 @@
         }
 
         function getModal(data){
+            const resultDat = data.replace('#','/')
 
             const modalParent = document.getElementById('modal-parent')
 
@@ -71,12 +72,11 @@
                     <i class="fab fa-reddit-alien"></i>
                     </div>
                     <div class="copy">
-                    <input type="text" value="${data}" class="copy-input">
+                    <input type="text" value="${resultDat}" class="copy-input">
                     <button class="btn copy-button">Copy Text</button>
                     </div>
                 </div>
                 </div>
-            
             `
 
 
