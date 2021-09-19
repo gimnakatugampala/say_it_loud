@@ -46,10 +46,11 @@
      </script>
 
      <script>
+         // Share
          const clickShares = document.querySelectorAll('.modal-share')
          const modalMain = document.getElementById('modal-parent')
-          const modalParent = document.getElementById('modal-parent')
-          
+         const modalParent = document.getElementById('modal-parent')
+
 
         for(let i=0;i < clickShares.length; i++ ){
             clickShares[i].addEventListener('click',function(){
@@ -118,6 +119,15 @@
          }
 
 
+       //Comment
+         const clickComment = document.querySelectorAll('.modal-comment')
+         const blockComment = document.getElementById('block-comment')
+        
+           for(let i=0;i < clickComment.length; i++ ){
+            clickComment[i].addEventListener('click',function(){
+                console.log(clickComment[i].href)
+            })
+        }
 
 
      </script>

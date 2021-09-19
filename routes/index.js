@@ -24,7 +24,7 @@ router.get('/',ensureAuth ,async (req,res) =>{
     let posts = await Post.find({}).sort({createdAt: -1}).lean()
 
     // console.log(req.user)
-    console.log(posts)
+    // console.log(posts)
 
     res.render('post/index',{
         userimg,
