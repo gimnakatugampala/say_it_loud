@@ -91,5 +91,9 @@ router.get('/auth/facebook/callback',
     res.redirect('/signin')
   })
 
+  router.post('/comments',(req,res) =>{
+      console.log(req.body)
+  })
+
 
 module.exports = router
