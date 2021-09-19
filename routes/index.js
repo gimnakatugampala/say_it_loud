@@ -21,7 +21,7 @@ router.get('/',ensureAuth ,async (req,res) =>{
     const displayname = req.user.displayName
     const googleId = req.user.googleId
 
-    let posts = await Post.find({}).lean()
+    let posts = await Post.find({}).sort({createdAt: -1}).lean()
 
     // console.log(req.user)
     console.log(posts)
