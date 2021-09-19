@@ -213,6 +213,10 @@
 
   }
 
+  .comment-body{
+      padding:20px;
+  }
+
  .comment-close{
     color: white;
     float: right;
