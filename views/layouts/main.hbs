@@ -143,10 +143,10 @@
                 <h5>Leave a Comment - ${result}</h5>
                 </div>
                 <form class="comment-body" method="POST" action="/comments">
-                <input type="hidden" name="postid" value="${result}">
-                <input type="hidden" name="displayname" value={{firstLower displayname}}>
-                <input type="hidden" name="userid" value={{id}}>
-                <input type="hidden" name="userimage" value={{userimg}}>
+                <input type="hidden" name="postId" value="${result}">
+                <input type="hidden" name="displayName" value={{firstLower displayname}}>
+                <input type="hidden" name="userId" value={{id}}>
+                <input type="hidden" name="userImage" value={{userimg}}>
                 <div class="input-field col s12">
                     <textarea name="comment" id="comment" class="materialize-textarea"></textarea>
                     <label for="comment">Comment</label>
