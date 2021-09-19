@@ -26,7 +26,7 @@
         <div class="row section" >
           <a href="#" class="col m4 s4"><i class="far fa-thumbs-up"></i> Like</a>
           <a href="#" class="col m4 s4"><i class="far fa-comment"></i> Comments</a>
-          <a href="#{{_id}}" class="col m4 s4 modal-trigger"><i class="far fa-share-square"></i> Share</a>
+          <a href="#{{_id}}" class="col m4 s4 modal-share"><i class="far fa-share-square"></i> Share</a>
         </div>
       </div>
       {{/each}}
@@ -41,4 +41,19 @@
 <span id="modal-parent">
 
 </span>
+
+{{!-- Comment modal --}}
+ <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
 
