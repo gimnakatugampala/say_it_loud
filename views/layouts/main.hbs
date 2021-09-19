@@ -121,13 +121,31 @@
 
        //Comment
          const clickComment = document.querySelectorAll('.modal-comment')
-         const blockComment = document.getElementById('block-comment')
+         const blockComment = document.querySelector('.block-comment')
         
            for(let i=0;i < clickComment.length; i++ ){
             clickComment[i].addEventListener('click',function(){
-                console.log(clickComment[i].href)
+                getComment(clickComment[i].href)
             })
         }
+
+        function getComment(data){
+            // Get the block of the comment section
+            blockComment.style.display = 'block'
+            
+        }
+
+        blockComment.addEventListener('click',function(e){
+           
+                
+                if(e.target.className == 'block-comment'){
+                     blockComment.style.display = 'none'
+                }else if(e.target.className == 'comment-close'){
+                     blockComment.style.display = 'none'
+
+                }
+        
+        })
 
 
      </script>

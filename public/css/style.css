@@ -177,8 +177,8 @@
 
   /* Comment  */
 
-  #block-comment{
-    display: block; /* Hidden by default */
+  .block-comment{
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
