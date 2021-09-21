@@ -15,7 +15,7 @@
         <div class="card-image">
           <img src="../../uploads/{{image}}" style="height: 300px;object-fit:cover;">
           <span class="card-title">{{title}}</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="far fa-trash-alt"></i></a>
+          {{{displayBin ../id userId }}}
         </div>
         {{else}}
         <span></span>
@@ -24,13 +24,12 @@
           <p>{{body}}.</p>
         </div>
         <div class="row section" >
-          <a href="#" class="col m4 s4"><i class="far fa-thumbs-up"></i> Like</a>
+          <a href="#" class="col m4 s4">{{likeCount}}<i class="far fa-thumbs-up"></i>Like</a>
           <a href="#{{_id}}" class="col m4 s4 modal-comment"><i class="far fa-comment"></i> Comments</a>
           <a href="#{{_id}}" class="col m4 s4 modal-share"><i class="far fa-share-square"></i> Share</a>
         </div>
       </div>
       {{/each}}
-
 
       {{else}}
       <p>No Posts..</p>
@@ -51,3 +50,4 @@
       <input type="hidden" name="userimage" value={{userimg}}> --}}
 
 </span>
+

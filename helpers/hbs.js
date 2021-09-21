@@ -6,5 +6,13 @@ module.exports = {
     },
     firstLower:function(name){
         return name.toLowerCase()
+    },
+    displayBin:function(uid,postuid){
+        
+        if(uid == postuid){
+           return `
+           <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="far fa-trash-alt"></i></a>
+           `
+        }
     }
 }

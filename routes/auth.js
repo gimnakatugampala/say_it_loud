@@ -3,6 +3,9 @@ const router = express.Router()
 const passport =  require('passport')
 const {ensureAuth,ensureGuest}  = require('../middleware/auth')
 
+const Comment = require('../models/Comment')
+
+
 
 // @desc Login Page
 // @route GET /
@@ -91,8 +94,26 @@ router.get('/auth/facebook/callback',
     res.redirect('/signin')
   })
 
-  router.post('/comments',(req,res) =>{
-      console.log(req.body)
+
+   // @desc Comment
+  // @route POST  /comments
+  router.post('/comments',ensureAuth,async (req,res) =>{
+
+    try{
+
+      await Comment.create(req.body)
+
+      res.redirect('/posts')
+
+    }catch(err){
+
+      console.log(err)
+
+    }
+
+
+      
+      
   })
 
 
