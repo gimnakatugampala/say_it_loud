@@ -7,7 +7,7 @@
                  <p class="username">@{{username}}</p>
                  <p class="date">{{formatDate createdAt "YYYYMMDD"}}</p>
              </a>
-             <a href="/posts/{{_id}}" class="view-post">View post</a>
+             {{!-- <a href="/posts/{{_id}}" class="view-post">View post</a> --}}
              {{!-- <span class="link-post">
              </span> --}}
           </span>
@@ -15,7 +15,7 @@
         <div class="card-image">
           <img src="../../uploads/{{image}}" style="height: 300px;object-fit:cover;">
           <span class="card-title">{{title}}</span>
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="far fa-trash-alt"></i></a>
+          {{{displayBin ../id userId }}}
         </div>
         {{else}}
         <span></span>
@@ -23,11 +23,11 @@
         <div class="card-content">
           <p>{{body}}.</p>
         </div>
+
         <div class="row section" >
-          <a href="#" class="col m4 s4"><i class="far fa-thumbs-up"></i> Like</a>
-          <a href="#" class="col m4 s4"><i class="far fa-comment"></i> Comments</a>
-          <a href="#" class="col m4 s4"><i class="far fa-share-square"></i> Share</a>
+         <a href="/posts/{{_id}}" class="col m12 s12">View post</a>
         </div>
+    
       </div>
       {{/each}}
 
@@ -36,7 +36,18 @@
 
       {{/if}}
 
+{{!-- Share modal --}}
+<span id="modal-parent">
 
+</span>
 
+{{!-- Comment modal --}}
+<span class="block-comment">
+      {{!-- <input type="hidden" name="firstname" value={{userfirstname}}>
+      <input type="hidden" name="lastname" value={{userlastname}}>
+      <input type="hidden" name="displayname" value={{displayname}}>
+      <input type="hidden" name="userid" value={{id}}>
+      <input type="hidden" name="userimage" value={{userimg}}> --}}
 
-         
+</span>
+
