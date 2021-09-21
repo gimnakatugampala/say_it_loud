@@ -153,7 +153,17 @@ router.get('/hashtags',ensureAuth,(req,res) =>{
 
 // @desc  Single Post
 // @route GET /posts/:id
-router.get('/:id',ensureAuth,(req,res) =>{
+router.get('/:id',ensureAuth,async (req,res) =>{
+
+    const single = await Post.findOne({
+        _id:req.params.id
+    }).lean()
+
+    if(!single){
+        return res.send('error')
+    }
+
+    console.log(single)
 
     const userimg =  req.user.image
     const userfirstname =  req.user.firstName
@@ -162,7 +172,10 @@ router.get('/:id',ensureAuth,(req,res) =>{
     const displayname = req.user.displayName
     const googleId = req.user.googleId
 
-    res.send('post/create',{
+   
+    
+
+    res.render('post/single',{
         userimg,
         userfirstname,
         userlastname,
@@ -171,6 +184,14 @@ router.get('/:id',ensureAuth,(req,res) =>{
         googleId
     })
 
+})
+
+// @desc Delete Post
+//@ route POST /posts/:id
+router.delete('/:id',ensureAuth,(req,res) =>{
+
+    res.render('post/single')
+    
 })
 
 module.exports = router
