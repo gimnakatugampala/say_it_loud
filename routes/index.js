@@ -181,7 +181,8 @@ router.get('/:id',ensureAuth,async (req,res) =>{
         userlastname,
         id,
         displayname,
-        googleId
+        googleId,
+        single
     })
 
 })

@@ -1,1 +1,50 @@
-single
+  {{#if single }}
+      <div class="card feed-post">
+          <span class="grey lighten-2 head-section-post">
+              <img src={{single.userimage}} class="img-post-head">
+             <a href="/profile/{{single.username}}" class="by">{{single.displayname}}
+                 <p class="username">@{{single.username}}</p>
+                 <p class="date">{{formatDate single.createdAt "YYYYMMDD"}}</p>
+             </a>
+             {{!-- <span class="link-post">
+             </span> --}}
+          </span>
+         {{#if single}}
+        <div class="card-image">
+          <img src="../../uploads/{{single.image}}" style="height: 300px;object-fit:cover;">
+          <span class="card-title">{{single.title}}</span>
+          {{{displayBin ./id single.userId }}}
+        </div>
+        {{else}}
+        <span></span>
+        {{/if}}
+        <div class="card-content">
+          <p>{{single.body}}.</p>
+        </div>
+        {{!-- <div class="row section" >
+          <a href="#" class="col m4 s4">{{single.likeCount}}<i class="far fa-thumbs-up"></i>Like</a>
+          <a href="#{{single._id}}" class="col m4 s4 modal-comment"><i class="far fa-comment"></i> Comments</a>
+          <a href="#{{single._id}}" class="col m4 s4 modal-share"><i class="far fa-share-square"></i> Share</a>
+        </div> --}}
+      </div>
+
+      {{else}}
+      <p>No Posts..</p>
+
+      {{/if}}
+
+{{!-- Share modal --}}
+<span id="modal-parent">
+
+</span>
+
+{{!-- Comment modal --}}
+<span class="block-comment">
+      {{!-- <input type="hidden" name="firstname" value={{userfirstname}}>
+      <input type="hidden" name="lastname" value={{userlastname}}>
+      <input type="hidden" name="displayname" value={{displayname}}>
+      <input type="hidden" name="userid" value={{id}}>
+      <input type="hidden" name="userimage" value={{userimg}}> --}}
+
+</span>
+
