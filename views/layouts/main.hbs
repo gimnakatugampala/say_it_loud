@@ -176,11 +176,45 @@
 
      {{!-- News --}}
      <script>
-         
+
+         const newsRoom = document.getElementById('news')
+         const loader  = document.querySelector('.loader')
+
 
          fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=67773a1a4b0841e5877c2d2095afd9bf`)
          .then(res => res.json())
-         .then(data => console.log(data.articles))
+         .then(data => {
+             console.log(data.articles)
+
+             if(data.articles.length == ''){
+                 newsRoom.innerHTML = '<div class="loader"></div>'
+             }else{
+                 loader.style.display = 'none'
+                 data.articles.forEach(function(item, index){
+                     newsRoom.innerHTML += `
+                            <div class="card-news">
+                    <a href="#" class="link-news" target="_blank">
+                        <span class="news-header">
+                        <p>date: 2020-20-89</p> 
+                        <p>Gimna Katugampala</p>
+                        </span>
+                        <span class="news-body">
+                            <div class="card-desc">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi inventore Lorem ipsum dolor sit amet c
+                    </div>
+                    <div class="card-img">
+                        <img src="https://lh3.googleusercontent.com/a-/AOh14GiKp4KFiujqOufxCRkbbdTlbmxeJtfY8wMdhVbIsQ=s96-c" alt="">
+                    </div>
+                        </span>
+                </a>
+                </div>
+                     `
+                 })
+
+             }
+
+
+         })
 
      </script>
 
