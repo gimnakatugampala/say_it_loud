@@ -112,7 +112,7 @@ router.get('/all',ensureAuth,async (req,res) =>{
     const displayname = req.user.displayName
     const googleId = req.user.googleId
 
-    let posts = await Post.find({}).lean()
+    let posts = await Post.find({}).sort({createdAt: -1}).lean()
 
 
     res.render('post/all',{
