@@ -1,8 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-const User = require('../models/User')
 const Post = require('../models/Post')
+const Comment = require('../models/Comment')
 const {ensureAuth}  = require('../middleware/auth')
 
 const multer  = require('multer')
@@ -155,6 +155,11 @@ router.get('/hashtags',ensureAuth,(req,res) =>{
 // @route GET /posts/:id
 router.get('/:id',ensureAuth,async (req,res) =>{
 
+    
+    const comments = await Comment.find({
+        postId:req.params.id
+    }).lean()
+
     const single = await Post.findOne({
         _id:req.params.id
     }).lean()
@@ -163,7 +168,13 @@ router.get('/:id',ensureAuth,async (req,res) =>{
         return res.send('error')
     }
 
-    console.log(single)
+    if(!comments){
+        return res.send('error')
+    }
+
+
+     //console.log(single)
+    console.log(comments)
 
     const userimg =  req.user.image
     const userfirstname =  req.user.firstName
@@ -182,7 +193,8 @@ router.get('/:id',ensureAuth,async (req,res) =>{
         id,
         displayname,
         googleId,
-        single
+        single,
+        comments
     })
 
 })

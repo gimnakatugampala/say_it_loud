@@ -9,6 +9,7 @@
              {{!-- <span class="link-post">
              </span> --}}
           </span>
+
          {{#if single}}
         <div class="card-image">
           <img src="../../uploads/{{single.image}}" style="height: 300px;object-fit:cover;">
@@ -21,17 +22,34 @@
         <div class="card-content">
           <p>{{single.body}}.</p>
         </div>
-        {{!-- <div class="row section" >
-          <a href="#" class="col m4 s4">{{single.likeCount}}<i class="far fa-thumbs-up"></i>Like</a>
-          <a href="#{{single._id}}" class="col m4 s4 modal-comment"><i class="far fa-comment"></i> Comments</a>
-          <a href="#{{single._id}}" class="col m4 s4 modal-share"><i class="far fa-share-square"></i> Share</a>
-        </div> --}}
       </div>
+
+     
 
       {{else}}
       <p>No Posts..</p>
 
       {{/if}}
+
+       <h6>Comments</h6>
+       <ul class="collection">
+           {{#if comments}}
+           {{#each comments}}
+               <li class="collection-item avatar">
+                <img src={{userImage}} alt="" class="circle">
+                    <a href="/profile/{{displayName}}" class="by">@{{displayName}}
+                        {{!-- <p class="username">@{{displayName}}</p> --}}
+                    </a> <br />
+                <span class="title">{{comment}}</span>
+                <a href="#!" class="secondary-content">{{formatDate createdAt "YYYYMMDD"}}</a>
+                </li>
+           {{/each}}
+            </ul>
+
+            {{else}}
+            <p>No Comment</p>
+
+            {{/if}}
 
 {{!-- Share modal --}}
 <span id="modal-parent">
