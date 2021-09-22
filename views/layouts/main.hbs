@@ -193,17 +193,17 @@
                  data.articles.forEach(function(item, index){
                      newsRoom.innerHTML += `
                             <div class="card-news">
-                    <a href="#" class="link-news" target="_blank">
+                    <a href="${item.url}" class="link-news" target="_blank">
                         <span class="news-header">
-                        <p>date: 2020-20-89</p> 
-                        <p>Gimna Katugampala</p>
+                        <p>Date:  ${item.publishedAt.substring(0, 10)}</p> 
+                        <p>${item.author}</p>
                         </span>
                         <span class="news-body">
                             <div class="card-desc">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi inventore Lorem ipsum dolor sit amet c
+                                ${item.description.substring(0, 50)}
                     </div>
                     <div class="card-img">
-                        <img src="https://lh3.googleusercontent.com/a-/AOh14GiKp4KFiujqOufxCRkbbdTlbmxeJtfY8wMdhVbIsQ=s96-c" alt="">
+                        <img src="${item.urlToImage}" class="card-img">
                     </div>
                         </span>
                 </a>
