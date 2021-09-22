@@ -11,14 +11,11 @@ const upload = multer({ dest: 'uploads/' })
 const path = require('path')
 const fs = require('fs')
 
-const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('67773a1a4b0841e5877c2d2095afd9bf');
 
 // @desc All Posts
 // @route GET /posts
 router.get('/',ensureAuth ,async (req,res) =>{
 
-    const news = []
 
     const userimg =  req.user.image
     const userfirstname =  req.user.firstName
@@ -28,19 +25,6 @@ router.get('/',ensureAuth ,async (req,res) =>{
     const googleId = req.user.googleId
 
     let posts = await Post.find({}).sort({createdAt: -1}).lean()
-
-    console.log(req.user)
-    // console.log(posts)
-
-  newsapi.v2.topHeadlines({
-        category: 'technology',
-        language: 'en',
-        country: 'us'
-      }).then(response => {
-        news.push(response.articles)
-      })
-
-      console.log('news',news)
     
 
     res.render('post/index',{
