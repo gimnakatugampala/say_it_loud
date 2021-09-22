@@ -235,6 +235,7 @@
      height: 200px;
      object-fit: fill;
      display: inline-block;
+     margin: 0;
  }
 
  .pro-image{
@@ -248,12 +249,31 @@
 
  }
 
+ #main-image-pro{
+     margin: 0;
+ }
+
  #main-profile-image{
      height: 200px;
      width: 200px;
      top: -90px;
      position: relative;
+     margin: 0;
  }
+
+ #content-header{
+     margin: 0;
+     padding: 0;
+ }
+
+ .content-header{
+     font-weight: bold;
+     margin: 0;
+     position: absolute;
+     top: 55%;
+     left: 60%;
+ }
+
 
  /* Add Animation */
 @-webkit-keyframes slideIn {
