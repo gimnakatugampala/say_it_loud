@@ -14,7 +14,7 @@
         <div class="card-image">
           <img src="../../uploads/{{single.image}}" style="height: 300px;object-fit:cover;">
           <span class="card-title">{{single.title}}</span>
-          {{{displayBin ./id single.userId }}}
+          {{{displayBin ./id single.userId single._id}}}
         </div>
         {{else}}
         <span></span>

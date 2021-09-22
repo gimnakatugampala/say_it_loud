@@ -173,8 +173,8 @@ router.get('/:id',ensureAuth,async (req,res) =>{
     }
 
 
-     //console.log(single)
-    console.log(comments)
+     console.log(single)
+    // console.log(comments)
 
     const userimg =  req.user.image
     const userfirstname =  req.user.firstName
