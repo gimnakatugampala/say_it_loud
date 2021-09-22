@@ -124,9 +124,9 @@ router.get('/auth/facebook/callback',
 
     const u = req.params.id
 
-    const userdata = await User.findOne({firstName:u})
+    const userdata = await User.findOne({firstName:u}).sort({createdAt: -1}).lean()
 
-    const postdata = await Post.find({userId:userdata._id})
+    const postdata = await Post.find({userId:userdata._id}).lean()
 
     const userimg =  req.user.image
     const userfirstname =  req.user.firstName

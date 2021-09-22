@@ -1,1 +1,60 @@
-<h1>Profile</h1>
+
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="https://images.unsplash.com/photo-1630872146661-e17a0757d1c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80">
+    <a class="btn-floating" id="main-profile-image">
+        <img src={{userimg}} class="pro-image">
+    </a>
+    </div>
+    <div class="card-content">
+      <span class="card-title  grey-text text-darken-4">Card Title</span>
+    </div>
+  
+  </div>
+    
+    {{#if postdata }}
+    {{#each postdata}}
+      <div class="card feed-post">
+          <span class="grey lighten-2 head-section-post">
+              <img src={{userimage}} class="img-post-head">
+             <a href="/profile/{{username}}" class="by">{{displayname}}
+                 <p class="username">@{{username}}</p>
+                 <p class="date">{{formatDate createdAt "YYYYMMDD"}}</p>
+             </a>
+             <a href="/posts/{{_id}}" class="view-post">View post</a>
+          </span>
+         {{#if image.length}}
+        <div class="card-image">
+          <img src="../../uploads/{{image}}" style="height: 300px;object-fit:cover;">
+          <span class="card-title">{{title}}</span>
+          {{{displayBin ../id userId _id}}}
+      
+        </div>
+        {{else}}
+        <span></span>
+        {{/if}}
+        <div class="card-content">
+          <p>{{body}}.</p>
+        </div>
+        <div class="row section" >
+          {{!-- <a href="#" class="col m4 s4">{{likeCount}}<i class="far fa-thumbs-up"></i>Like</a> --}}
+          <a href="#{{_id}}" class="col m6 s6 modal-comment"><i class="far fa-comment"></i> Comments</a>
+          <a href="#{{_id}}" class="col m6 s6 modal-share"><i class="far fa-share-square"></i> Share</a>
+        </div>
+      </div>
+      {{/each}}
+
+      {{else}}
+      <p>No Posts..</p>
+
+      {{/if}}
+
+{{!-- Share modal --}}
+<span id="modal-parent">
+
+</span>
+
+{{!-- Comment modal --}}
+<span class="block-comment">
+
+</span>
