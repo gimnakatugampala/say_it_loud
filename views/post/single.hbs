@@ -38,10 +38,9 @@
                <li class="collection-item avatar">
                 <img src={{userImage}} alt="" class="circle">
                     <a href="/profile/{{displayName}}" class="by">@{{displayName}}
-                        {{!-- <p class="username">@{{displayName}}</p> --}}
                     </a> <br />
                 <span class="title">{{comment}}</span>
-                <a href="#!" class="secondary-content">{{formatDate createdAt "YYYYMMDD"}}</a>
+                <a  class="secondary-content">{{formatDate createdAt "YYYYMMDD"}}</a>
                 </li>
            {{/each}}
             </ul>
