@@ -67,10 +67,10 @@ app.use("/uploads", express.static('./uploads/'))
 
 
 // Handlebars Helpers
-const {formatDate ,firstLower,displayBin} = require('./helpers/hbs')
+const {formatDate,displayBin ,firstLower} = require('./helpers/hbs')
 
 // Handlebars
-app.engine('.hbs', exphbs({helpers:{formatDate, firstLower ,displayBin },defaultLayout:'main',extname: '.hbs'}));
+app.engine('.hbs', exphbs({helpers:{formatDate ,displayBin ,firstLower },defaultLayout:'main',extname: '.hbs'}));
 app.set('view engine','.hbs')
 
 // Routes

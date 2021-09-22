@@ -116,5 +116,13 @@ router.get('/auth/facebook/callback',
       
   })
 
+  // @desc Profile
+  // @route /profile/:id
+  router.get('/profile/:id',ensureAuth,(req,res) =>{
+
+    res.send(req.params.id)
+
+  })
+
 
 module.exports = router
