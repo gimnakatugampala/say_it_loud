@@ -274,6 +274,42 @@
      left: 60%;
  }
 
+ /* News */
+ .card-news{
+     background-color: #aaaaaa;
+     display: flex;
+     justify-content: space-between;
+     padding:5px;
+ }
+
+ .card-desc{
+     font-weight: bold;
+ }
+
+ .card-img{
+     height: 100%;
+     width: 100%;
+     align-self: center;
+     padding: 5px;
+ }
+
+ .card-img img{
+     border-radius: 10px;
+ }
+
+ .link-news{
+     color: #333;
+ }
+
+ .news-header{
+     display: flex;
+     justify-content: space-between;
+ }
+
+ .news-body{
+     display: flex;
+     justify-content: space-between;
+ }
 
  /* Add Animation */
 @-webkit-keyframes slideIn {

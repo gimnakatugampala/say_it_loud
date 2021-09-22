@@ -8,6 +8,9 @@ const User = require('../models/User')
 const Post = require('../models/Post')
 
 
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('67773a1a4b0841e5877c2d2095afd9bf');
+
 
 // @desc Login Page
 // @route GET /
