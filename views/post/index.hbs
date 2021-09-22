@@ -15,7 +15,14 @@
         <div class="card-image">
           <img src="../../uploads/{{image}}" style="height: 300px;object-fit:cover;">
           <span class="card-title">{{title}}</span>
-          {{{displayBin ../id userId }}}
+          {{!-- {{{displayBin ../id userId }}} --}}
+          <form action="/posts/{{_id}}" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red">
+                <i class="far fa-trash-alt"></i>
+              </button>
+          </form>
+            {{!-- <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="far fa-trash-alt"></i></a> --}}
         </div>
         {{else}}
         <span></span>

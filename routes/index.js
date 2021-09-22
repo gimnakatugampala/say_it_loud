@@ -201,9 +201,17 @@ router.get('/:id',ensureAuth,async (req,res) =>{
 
 // @desc Delete Post
 //@ route POST /posts/:id
-router.delete('/:id',ensureAuth,(req,res) =>{
+router.delete('/:id',ensureAuth,async (req,res) =>{
 
-    res.render('post/single')
+    try{
+        await Post.remove({_id:req.params.id})
+        res.redirect('/posts')
+
+    }catch(err){
+        console.log(err)
+        // return res.render('error/500')
+
+    }
     
 })
 
