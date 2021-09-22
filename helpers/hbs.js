@@ -5,7 +5,11 @@ module.exports = {
      return  moment(date, format).fromNow();
     },
     firstLower:function(name){
-        return name.toLowerCase()
+        if(name){
+            return name.toLowerCase()
+        }else{
+            return ''
+        }
     },
     displayBin:function(uid,postuid,post){
         

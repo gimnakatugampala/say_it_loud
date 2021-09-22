@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Post = require('../models/Post')
+const User  = require('../models/User')
 const Comment = require('../models/Comment')
 const {ensureAuth}  = require('../middleware/auth')
 
@@ -62,7 +63,7 @@ router.post('/',ensureAuth,upload.single('avatar'),async (req,res) =>{
             body:req.body.body,
             image:req.file.filename + req.file.originalname,
             status:req.body.status,
-            username: req.body.firstname.toLowerCase(),
+            username: req.body.firstname,
             displayname:req.body.firstname + ' '+  req.body.lastname
     
         }
@@ -214,5 +215,7 @@ router.delete('/:id',ensureAuth,async (req,res) =>{
     }
     
 })
+
+ 
 
 module.exports = router

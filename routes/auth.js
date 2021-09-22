@@ -4,6 +4,8 @@ const passport =  require('passport')
 const {ensureAuth,ensureGuest}  = require('../middleware/auth')
 
 const Comment = require('../models/Comment')
+const User = require('../models/User')
+const Post = require('../models/Post')
 
 
 
@@ -116,13 +118,39 @@ router.get('/auth/facebook/callback',
       
   })
 
-  // @desc Profile
+   // @desc Profile
   // @route /profile/:id
-  router.get('/profile/:id',ensureAuth,(req,res) =>{
+  router.get('/profile/:id',ensureAuth,async (req,res) =>{
 
-    res.send(req.params.id)
+    const u = req.params.id
+
+    const userdata = await User.findOne({firstName:u})
+
+    const postdata = await Post.find({userId:userdata._id})
+
+    const userimg =  req.user.image
+    const userfirstname =  req.user.firstName
+    const userlastname =  req.user.lastName
+    const id = req.user._id
+    const displayname = req.user.displayName
+    const googleId = req.user.googleId
+
+    console.log(userdata)
+    console.log(postdata)
+
+    res.render('profile/profile',{
+      userimg,
+      userfirstname,
+      userlastname,
+      id,
+      displayname,
+      googleId,
+      userdata,
+      postdata
+    })
 
   })
+
 
 
 module.exports = router
