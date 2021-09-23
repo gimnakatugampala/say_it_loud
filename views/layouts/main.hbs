@@ -218,6 +218,39 @@
 
      </script>
 
+    {{!-- Trending --}}
+     <script>
+
+         const trendingDOM = document.querySelector('.tredning')
+         const load  = document.querySelector('.load')
+
+         fetch('http://localhost:3000/trending')
+         .then(res => res.json())
+         .then(data => {
+
+               if(data[0].trends == ''){
+                 trendingDOM.innerHTML = '<div class="load"></div>'
+             }else{
+                 load.style.display = 'none'
+                 data[0].trends.forEach(function(item, index){
+                     trendingDOM.innerHTML += `
+                       <a href="${item.url}" class="main-trending" target="_blank">
+                        <span class="word-trending">
+                            ${item.name}
+                        </span>
+                        <span class="volume-trending">
+                            ${item.tweet_volume}
+                        </span>
+                    </a>
+                     `
+                 })
+
+             }
+
+         })
+
+     </script>
+
 
 </body>
 </html>
