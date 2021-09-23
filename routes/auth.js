@@ -6,8 +6,15 @@ const {ensureAuth,ensureGuest}  = require('../middleware/auth')
 const Comment = require('../models/Comment')
 const User = require('../models/User')
 const Post = require('../models/Post')
+const Twitter = require('twitter');
 
 
+const client = new Twitter({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+});
 
 
 
@@ -118,6 +125,16 @@ router.get('/auth/facebook/callback',
 
       
       
+  })
+
+    // @desc Trending
+  // @route GET  /trending
+  router.get('/trending',ensureAuth,async (req,res) =>{
+
+      const trends = await client.get('trends/place.json',{
+        id:'1'
+      })
+      res.json(trends)
   })
 
    // @desc Profile
