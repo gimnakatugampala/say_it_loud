@@ -254,12 +254,16 @@
     {{!-- Search tweets --}}
      <script>
          const search = document.getElementById('search-form')
+         const query = document.getElementById('query')
 
          search.addEventListener('submit',function(e){
-
              e.preventDefault();
 
-             console.log('clicked')
+             console.log(query.value)
+
+             if(query.value === ''){
+                 alert('Please enter a query')
+             }
 
          })
      </script>
