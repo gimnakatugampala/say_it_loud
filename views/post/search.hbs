@@ -1,1 +1,29 @@
-<h1>Search</h1>
+<h5 style="text-align: center;">Search Tweets</h5>
+
+  <div class="row">
+    <form class="col s12" id="search-form">
+      <div class="row">
+        <div class="input-field col s9">
+          <input id="search" type="text" name="s">
+          <label for="search">Search Tweets</label>
+        </div>
+        <div class="input-field col s3">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">search</i>
+        </button>
+        </div>
+      </div>
+    </form>
+  </div>
+        
+
+
+var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("https://api.twitter.com/2/tweets/search/recent?query=nyc&tweet.fields=author_id,created_at,entities,geo,in_reply_to_user_id,lang,possibly_sensitive,referenced_tweets,source", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
