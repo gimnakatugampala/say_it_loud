@@ -410,6 +410,12 @@
       display:none;
   }
 
+  .search-content{
+      margin:auto;
+      font-size: 20px;
+      text-align: center;
+  }
+
 
   
   @keyframes spin {

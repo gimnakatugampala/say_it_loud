@@ -184,7 +184,7 @@
          fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=67773a1a4b0841e5877c2d2095afd9bf`)
          .then(res => res.json())
          .then(data => {
-             console.log(data.articles)
+             //console.log(data.articles)
 
              if(data.articles.length == ''){
                  newsRoom.innerHTML = '<div class="loader"></div>'
@@ -266,7 +266,7 @@
          search.addEventListener('submit',function(e){
              e.preventDefault();
 
-             console.log(query.value)
+             //console.log(query.value)
 
              if(query.value === ''){
                  alert('Please enter a query')
@@ -276,7 +276,7 @@
              .then(res => res.json())
              .then(data => {
 
-                 console.log(data.statuses)
+                 //console.log(data.statuses)
                  
                  searchAny.classList.add('hide')
                  searchloader.classList.remove('hide')
