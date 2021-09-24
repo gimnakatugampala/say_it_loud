@@ -255,7 +255,9 @@
      <script>
          const search = document.getElementById('search-form')
          const query = document.getElementById('query')
-
+         const searchDOM = document.getElementById('search')
+         const searchAny = document.querySelector('.search-content')
+         const searchloader = document.querySelector('.search-loading')
         
 
          search.addEventListener('submit',function(e){
@@ -267,9 +269,42 @@
                  alert('Please enter a query')
              }
 
-             fetch(`http://localhost:3000/search/${query.value}`)
+             fetch(`http://localhost:3000/search/${query.value.trim()}`)
              .then(res => res.json())
-             .then(data => console.log(data))
+             .then(data => {
+                 
+                 searchAny.classList.add('hide')
+                 searchloader.classList.remove('hide')
+
+                  if(data.statuses == ''){
+                 //searchloader.innerHTML = ' <div class="search-loading"></div>'
+
+             }else{
+                 searchAny.classList.add('hide')
+                 searchloader.classList.add('hide')
+
+                 data.statuses.forEach(function(item, index){
+                     searchDOM.innerHTML += `
+                        <div class="search-main">
+                        <div class="search-header">
+                            <p class="tweet-username">
+                                <img src="https://www.wpbeginner.com/wp-content/uploads/2020/03/addlinkinwp-og.png" class="username-img">
+                                <p class="user-search"> Username :  @gimna</p>
+                            </p>
+                            <div class="tweet-source">
+                                Tweeter Web App
+                            </div>
+                        </div>
+                        <div class="search-body">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sit repellat error corporis neque repellendus unde! Veniam enim quis est culpa aspernatur ut perferendis nam velit cupiditate? Cum, temporibus numquam!
+                        </div>
+                        </div>
+                     `
+                 })
+
+             }
+
+             })
             
         
 

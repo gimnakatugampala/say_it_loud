@@ -140,8 +140,10 @@ router.get('/auth/facebook/callback',
 
   router.get('/search/:query',async (req,res) =>{
 
+      const name = req.params.query
+
     const search = await client.get('search/tweets.json',{
-      q:'america'
+      q:name
     })
     
     res.json(search)

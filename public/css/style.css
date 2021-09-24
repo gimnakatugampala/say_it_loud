@@ -406,6 +406,10 @@
     margin:auto;
   }
 
+  .hide{
+      display:none;
+  }
+
 
   
   @keyframes spin {
