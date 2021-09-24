@@ -31,16 +31,7 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sit repellat error corporis neque repellendus unde! Veniam enim quis est culpa aspernatur ut perferendis nam velit cupiditate? Cum, temporibus numquam!
       </div>
       </div>
+
+      <div class="search-loading"></div>
   </div>
         
-
-
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow'
-};
-
-fetch("https://api.twitter.com/2/tweets/search/recent?query=nyc&tweet.fields=author_id,created_at,entities,geo,in_reply_to_user_id,lang,possibly_sensitive,referenced_tweets,source", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
