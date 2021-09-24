@@ -9,6 +9,15 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <link rel="stylesheet" href="/css/style.css">
             <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico">
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G918N6CEEC"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-G918N6CEEC');
+        </script>
     <title>SAY IT LOUD - Gimna katugampala Production</title>
 </head>
 <body>
@@ -134,7 +143,7 @@
             // Get the block of the comment section
             blockComment.style.display = 'block'
 
-           const result =  data.replace('http://localhost:3000/posts#','')
+           const result =  data.replace('https://sayitloud2021.herokuapp.com/posts#','')
 
             //get the html dot the Dom
             blockComment.innerHTML = `
@@ -225,7 +234,7 @@
          const trendingDOM = document.querySelector('.tredning')
          const load  = document.querySelector('.load')
 
-         fetch('http://localhost:3000/trending')
+         fetch('https://sayitloud2021.herokuapp.com/trending')
          .then(res => res.json())
          .then(data => {
 
@@ -273,7 +282,7 @@
                  alert('Please enter a query')
              }
 
-             fetch(`http://localhost:3000/search/${query.value.trim()}`)
+             fetch(`https://sayitloud2021.herokuapp.com/search/${query.value.trim()}`)
              .then(res => res.json())
              .then(data => {
 
