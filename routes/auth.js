@@ -137,6 +137,18 @@ router.get('/auth/facebook/callback',
       res.json(trends)
   })
 
+
+  router.get('/search/:query',async (req,res) =>{
+
+    const search = await client.get('search/tweets.json',{
+      q:'america'
+    })
+    
+    res.json(search)
+
+    //console.log(search)
+  })
+
    // @desc Profile
   // @route /profile/:id
   router.get('/profile/:id',ensureAuth,async (req,res) =>{

@@ -256,6 +256,8 @@
          const search = document.getElementById('search-form')
          const query = document.getElementById('query')
 
+        
+
          search.addEventListener('submit',function(e){
              e.preventDefault();
 
@@ -264,6 +266,12 @@
              if(query.value === ''){
                  alert('Please enter a query')
              }
+
+             fetch(`http://localhost:3000/search/${query.value}`)
+             .then(res => res.json())
+             .then(data => console.log(data))
+            
+        
 
          })
      </script>
