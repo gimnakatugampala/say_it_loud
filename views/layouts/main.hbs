@@ -258,7 +258,10 @@
          const searchDOM = document.getElementById('search')
          const searchAny = document.querySelector('.search-content')
          const searchloader = document.querySelector('.search-loading')
-        
+
+        query.addEventListener('change',function(){
+            searchDOM.innerHTML = ``
+        })
 
          search.addEventListener('submit',function(e){
              e.preventDefault();
@@ -272,12 +275,14 @@
              fetch(`http://localhost:3000/search/${query.value.trim()}`)
              .then(res => res.json())
              .then(data => {
+
+                 console.log(data.statuses)
                  
                  searchAny.classList.add('hide')
                  searchloader.classList.remove('hide')
 
                   if(data.statuses == ''){
-                 //searchloader.innerHTML = ' <div class="search-loading"></div>'
+                 searchDOM.innerHTML = ' <div class="search-loading"></div>'
 
              }else{
                  searchAny.classList.add('hide')
@@ -288,15 +293,15 @@
                         <div class="search-main">
                         <div class="search-header">
                             <p class="tweet-username">
-                                <img src="https://www.wpbeginner.com/wp-content/uploads/2020/03/addlinkinwp-og.png" class="username-img">
-                                <p class="user-search"> Username :  @gimna</p>
+                                <img src="${item.user.profile_image_url}" class="username-img">
+                                <p class="user-search"> Username :  @${item.user.screen_name}</p>
                             </p>
                             <div class="tweet-source">
-                                Tweeter Web App
+                                ${item.source}
                             </div>
                         </div>
                         <div class="search-body">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sit repellat error corporis neque repellendus unde! Veniam enim quis est culpa aspernatur ut perferendis nam velit cupiditate? Cum, temporibus numquam!
+                            ${item.text}
                         </div>
                         </div>
                      `
